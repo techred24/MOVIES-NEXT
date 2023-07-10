@@ -1,4 +1,4 @@
-import { Movie } from "@/infraestructure/http"
+import { Movie, MovieDetailed } from "@/infraestructure/http"
 
 export interface MenuOptions {
     name: string,
@@ -8,5 +8,5 @@ export interface NavigationProps {
     menuOptions: MenuOptions[]
 }
 export interface GridMoviesProps {
-    movies: Movie[]
+    movies: MovieDetailed[]
 }
