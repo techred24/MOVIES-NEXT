@@ -2,6 +2,7 @@ import { GridMoviesProps } from "@/interfaces/menu";
 import Image from 'next/image'
 
 export default function GridMovies({ movies }: GridMoviesProps) {
+    const dateOptions:Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
     return (
         <main className="mx-20 py-8">
             <div className="grid grid-cols-5 gap-4">
@@ -10,7 +11,7 @@ export default function GridMovies({ movies }: GridMoviesProps) {
                             const movieReleaseDateArray = e.release_date.split('-');
                             const [ year, month, day ] = movieReleaseDateArray;
                             const movieReleaseDate = new Date(Number(year), Number(month)-1, Number(day));
-                            const formattedDate = movieReleaseDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+                            const formattedDate = movieReleaseDate.toLocaleDateString('en-US', dateOptions);
                             return <article key={e.original_title} className="relative rounded-md overflow-hidden shadow-md">
                                         <Image
                                             src={`https://image.tmdb.org/t/p/w500${e.poster_path}`}
